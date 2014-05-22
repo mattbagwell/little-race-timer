@@ -9,6 +9,11 @@ A web app to help you manage and time races (ideally trail runs). Download and r
 
         bower install
     
+## Instructions
+- Swipe left from the right edge of the screen to change pages
+- Register your racers
+- Start the timer. Enter each bib number as the runner crosses the line. Results will generate automatically.
+
     
 ### Coming Soon:
 - Exporting results
