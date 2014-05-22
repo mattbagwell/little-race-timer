@@ -4,18 +4,20 @@ A web app to help you manage and time races (ideally trail runs). Download and r
 
 Demo it at http://timer.megadebacleopolis.com/
 
+    
+### Instructions
+- Swipe left from the right edge of the screen to change pages (on non-touch devices too)
+- Register your racers
+- Start the timer. Enter each bib number as the runner crosses the finish line. Results will generate automatically.
+
+
 ### Installation:
 - download/clone this repo!
 - download dependencies using
 
         bower install
-    
-### Instructions
-- Swipe left from the right edge of the screen to change pages
-- Register your racers
-- Start the timer. Enter each bib number as the runner crosses the line. Results will generate automatically.
 
-    
+
 ### Coming Soon:
 - Exporting results
     
