@@ -2,6 +2,7 @@
 
 A web app to help you manage and time races (ideally trail runs). Download and run it locally offline.
 
+Demo it at http://timer.megadebacleopolis.com/
 
 ### Installation:
 - download/clone this repo!
