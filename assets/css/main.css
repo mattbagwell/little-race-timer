@@ -1,0 +1,79 @@
+body,
+button {
+  -webkit-font-smoothing: antialiased; }
+
+html {
+  height: 100%; }
+
+body {
+  min-height: 100%;
+  height: 100%; }
+
+#registration .runner {
+  padding: 10px;
+  cursor: pointer; }
+  #registration .runner:hover {
+    background-color: AliceBlue; }
+
+input[name="state"] {
+  text-transform: uppercase; }
+
+#home {
+  width: 100%;
+  height: 100%;
+  display: table; }
+  #home .home-panel {
+    height: 100%;
+    width: 50%;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle; }
+    #home .home-panel a {
+      font-size: 2em;
+      color: white; }
+    #home .home-panel.registration {
+      background-color: deepskyblue; }
+    #home .home-panel.timer {
+      background-color: #14dc00; }
+
+.touch-responder {
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.view-animate-container {
+  position: relative;
+  height: 100% !important;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto; }
+
+.view-animate {
+  height: 100%; }
+
+.view-animate > .container {
+  z-index: 1; }
+
+.view-animate.ng-enter,
+.view-animate.ng-leave {
+  -webkit-transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  transition: all cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s;
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.view-animate.ng-enter {
+  left: 100%; }
+
+.view-animate.ng-enter.ng-enter-active {
+  left: 0; }
+
+.view-animate.ng-leave.ng-leave-active {
+  left: -100%; }
