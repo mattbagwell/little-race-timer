@@ -2,7 +2,7 @@
 (function() {
   var navCtrl, regCtrl, timerApp, timerCtrl;
 
-  timerApp = angular.module('timerApp', ['ngRoute', 'ngGrid', 'LocalStorageModule', 'ngTouch', 'ngAnimate']);
+  timerApp = angular.module('timerApp', ['ngRoute', 'LocalStorageModule', 'ngTouch', 'ngAnimate']);
 
   timerApp.config([
     '$routeProvider', function($routeProvider) {

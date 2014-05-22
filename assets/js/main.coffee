@@ -1,5 +1,5 @@
 
-timerApp  = angular.module('timerApp', ['ngRoute', 'ngGrid', 'LocalStorageModule', 'ngTouch', 'ngAnimate'])
+timerApp  = angular.module('timerApp', ['ngRoute', 'LocalStorageModule', 'ngTouch', 'ngAnimate'])
 
 timerApp.config(['$routeProvider', ($routeProvider)->
 	$routeProvider
