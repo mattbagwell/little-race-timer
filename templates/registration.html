@@ -1,7 +1,11 @@
+<div class="main-nav visible-md visible-lg">
+	<button class="btn btn-primary" ng-click="gotoReg()"><span class="glyphicon glyphicon-list-alt"></span></button>
+	<button class="btn btn-success" ng-click="gotoTimer()"><span class="glyphicon glyphicon-road"></span></button>
+</div>
+
 <div class="touch-responder" ng-swipe-left="gotoTimer()"></div>
 
 <div id="registration" class="container">
-
 
 	<div class="row">
 		<div class="col-sm-5">
@@ -55,7 +59,7 @@
 						<label for="bib">Bib #</label>
 						<input type="text" name="bib" ng-model="runner.bib" class="form-control input-lg">
 					</div>
-					
+
 					<div class="col-sm-12 text-right">
 						<button type="submit" class="btn btn-info btn-lg btn-block" ng-click="saveRunner()" >{{ saveCommand }}</button>
 						<button type="submit" class="btn btn-danger btn-lg btn-block" ng-click="deleteRunner()" ng-show="isEditing">Remove Runner</button>
