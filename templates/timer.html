@@ -30,8 +30,6 @@
 			<p><br></p>
 		
 
-
-
 		</div>
 		<div class="col-sm-6 col-sm-offset-1">
 			<div class="row">
@@ -58,55 +56,55 @@
 					<h2>5K</h2>
 
 					<h3>Overall</h3>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K' | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K' | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 
 					<h4>Female 1 - 9</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':1:9 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':1:9 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 
 					<h4>Female 10 - 19</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':10:19 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':10:19 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Female 20 - 29</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':20:29 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':20:29 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Female 30 - 39</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':30:39 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':30:39 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Female 40 - 49</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':40:49 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':40:49 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 
 					<h4>Female 50 - 59</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':50:59 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'F':50:59 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 							
 					<h4>Male 1 - 9</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':1:9 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':1:9 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 
 					<h4>Male 10 - 19</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':10:19 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':10:19 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>	
 
 					<h4>Male 20 - 29</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':20:29 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':20:29 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Male 30 - 39</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':30:39 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':30:39 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Male 40 - 49</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':40:49 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':40:49 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 
 					<h4>Male 50 - 59</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':50:59 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'5K':'M':50:59 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 
 				</div>
@@ -115,55 +113,55 @@
 					<h2>10K</h2>
 
 					<h3>Overall</h3>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K' |  orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K' |  limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 
 					<h4>Female 1 - 9</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':1:9 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':1:9 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Female 10 - 19</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':10:19 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':10:19 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 
 					<h4>Female 20 - 29</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':20:29 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':20:29 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Female 30 - 39</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':30:39 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':30:39 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Female 40 - 49</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':40:49 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':40:49 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 
 					<h4>Female 50 - 59</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':50:59 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'F':50:59 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 							
 					<h4>Male 1 - 9</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':1:9 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':1:9 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Male 10 - 19</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':10:19 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':10:19 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Male 20 - 29</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':20:29 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':20:29 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Male 30 - 39</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':30:39 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':30:39 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 					
 					<h4>Male 40 - 49</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':40:49 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':40:49 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 
 					<h4>Male 50 - 59</h4>
-					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':50:59 | orderBy:time">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
+					<p ng-repeat="runner in runners | ageGrpFilter:'10K':'M':50:59 | limitTo:3">{{runner.time}} {{runner.firstName}} {{runner.lastName}}
 					</p>
 
 				</div>

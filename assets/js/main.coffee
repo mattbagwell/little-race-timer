@@ -21,17 +21,23 @@ timerApp.config(['$routeProvider', ($routeProvider)->
 
 ])
 
-timerApp.factory('Runners', (localStorageService)->
-	set = (data)->	
+timerApp.factory('Runners', (localStorageService, $http)->
+	runners = {}
+
+	runners.set = (data)->	
 		runners = data
 		localStorageService.set('runners', runners)
 	
-	get = ()->
+	runners.get = ()->
 		localStorageService.get('runners')
 
-	set: set
-	get: get
-	
+
+	if(!localStorageService.get('runners')?)
+		$http.get('/assets/data/dummydata.json').success((data,success)->
+			runners.set(data)
+		)
+
+	runners
 )
 
 timerApp.factory('stopwatchService', ($timeout, StringFuncs, localStorageService)->
@@ -76,11 +82,15 @@ timerApp.service('StringFuncs', ()->
 )
 
 timerApp.filter('ageGrpFilter', ()->
-	(runners = null, race, gender = null, minAge = 0, maxAge = 1000)->
+	(runners = null, race, gender = null, minAge = 0, maxAge = 100)->
 		if runners?
-			for r in runners when r.age >= minAge and r.age <= maxAge and r.race == race
-				r if r.time != null and (r.gender == gender or gender is null)
-)
+			for r in runners
+				results = (r for r in runners when r.age >= minAge and r.age <= maxAge and r.race is race and r.time isnt null and (r.gender is gender or gender is null))
+				results.sort((a,b)->
+					if a.time < b.time then 0 else 1
+				)
+			results
+)			
 
 
 navCtrl = timerApp.controller('navCtrl', ($scope, $location)->
@@ -95,6 +105,7 @@ navCtrl = timerApp.controller('navCtrl', ($scope, $location)->
 
 timerCtrl = timerApp.controller('timerCtrl', ($scope, Runners, localStorageService, stopwatchService, ageGrpFilterFilter)->
 	$scope.runners = Runners.get()
+
 	$scope.timerIsActive = localStorageService.get('raceStartTime')?
 	$scope.raceIsOver = localStorageService.get('raceEndTime')?
 	$scope.bibNo = null
@@ -136,7 +147,8 @@ timerCtrl = timerApp.controller('timerCtrl', ($scope, Runners, localStorageServi
 
 
 regCtrl = timerApp.controller('regCtrl', ($scope, Runners)->
-	$scope.runners = Runners.get() or []
+	$scope.runners = Runners.get()
+
 	$scope.currentActivity = 'Add'
 	$scope.saveCommand = 'Register'
 	$scope.isNew = true
@@ -147,18 +159,18 @@ regCtrl = timerApp.controller('regCtrl', ($scope, Runners)->
 		$scope.isEditing = !$scope.isNew
 	)
 
-	$scope.findRunner = (id)->
-		runner for runner in $scope.runners when runner.id is id
+	$scope.findRunner = (bib)->
+		runner for runner in $scope.runners when runner.bib is bib
 
 	$scope.createNewID = ()->
-		ids = $scope.runners.map((obj, i)->
-			obj.id
+		bibs = $scope.runners.map((obj, i)->
+			obj.bib
 		)
-		Math.max.apply(Math, ids) + 1
+		Math.max.apply(Math, bibs) + 1
 
 	$scope.saveRunner = ()->
-		if !$scope.runner.id?
-			$scope.runner.id = $scope.createNewID()
+		if !$scope.runner.bib?
+			$scope.runner.bib = $scope.createNewID()
 			$scope.runner.time = null
 			$scope.runners.push($scope.runner)
 		$scope.runner = {race:"5K", gender:"F"}

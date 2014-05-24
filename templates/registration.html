@@ -55,9 +55,7 @@
 						<label for="bib">Bib #</label>
 						<input type="text" name="bib" ng-model="runner.bib" class="form-control input-lg">
 					</div>
-
-					<input type="hidden" ng-model="runner.id">
-
+					
 					<div class="col-sm-12 text-right">
 						<button type="submit" class="btn btn-info btn-lg btn-block" ng-click="saveRunner()" >{{ saveCommand }}</button>
 						<button type="submit" class="btn btn-danger btn-lg btn-block" ng-click="deleteRunner()" ng-show="isEditing">Remove Runner</button>
@@ -68,7 +66,7 @@
 		<div class="col-sm-6 col-sm-offset-1">
 			<h1>Registered Runners</h1>
 			<p><input type="text" class="form-control input-lg" placeholder="Search..." ng-model="search"></p>
-			<div class="runner" ng-repeat="runner in runners | filter:search:firstName" ng-click="loadRunner(runner.id)">
+			<div class="runner" ng-repeat="runner in runners | filter:search:firstName" ng-click="loadRunner(runner.bib)">
 				{{ runner.firstName + ' ' + runner.lastName }}
 			</div>
 		</div>

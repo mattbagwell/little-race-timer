@@ -20,20 +20,22 @@
     }
   ]);
 
-  timerApp.factory('Runners', function(localStorageService) {
-    var get, set;
-    set = function(data) {
-      var runners;
+  timerApp.factory('Runners', function(localStorageService, $http) {
+    var runners;
+    runners = {};
+    runners.set = function(data) {
       runners = data;
       return localStorageService.set('runners', runners);
     };
-    get = function() {
+    runners.get = function() {
       return localStorageService.get('runners');
     };
-    return {
-      set: set,
-      get: get
-    };
+    if (localStorageService.get('runners') == null) {
+      $http.get('/assets/data/dummydata.json').success(function(data, success) {
+        return runners.set(data);
+      });
+    }
+    return runners;
   });
 
   timerApp.factory('stopwatchService', function($timeout, StringFuncs, localStorageService) {
@@ -92,7 +94,7 @@
 
   timerApp.filter('ageGrpFilter', function() {
     return function(runners, race, gender, minAge, maxAge) {
-      var r, _i, _len, _results;
+      var r, results, _i, _len;
       if (runners == null) {
         runners = null;
       }
@@ -103,21 +105,31 @@
         minAge = 0;
       }
       if (maxAge == null) {
-        maxAge = 1000;
+        maxAge = 100;
       }
       if (runners != null) {
-        _results = [];
         for (_i = 0, _len = runners.length; _i < _len; _i++) {
           r = runners[_i];
-          if (r.age >= minAge && r.age <= maxAge && r.race === race) {
-            if (r.time !== null && (r.gender === gender || gender === null)) {
-              _results.push(r);
-            } else {
-              _results.push(void 0);
+          results = (function() {
+            var _j, _len1, _results;
+            _results = [];
+            for (_j = 0, _len1 = runners.length; _j < _len1; _j++) {
+              r = runners[_j];
+              if (r.age >= minAge && r.age <= maxAge && r.race === race && r.time !== null && (r.gender === gender || gender === null)) {
+                _results.push(r);
+              }
             }
-          }
+            return _results;
+          })();
+          results.sort(function(a, b) {
+            if (a.time < b.time) {
+              return 0;
+            } else {
+              return 1;
+            }
+          });
         }
-        return _results;
+        return results;
       }
     };
   });
@@ -188,7 +200,7 @@
   });
 
   regCtrl = timerApp.controller('regCtrl', function($scope, Runners) {
-    $scope.runners = Runners.get() || [];
+    $scope.runners = Runners.get();
     $scope.currentActivity = 'Add';
     $scope.saveCommand = 'Register';
     $scope.isNew = true;
@@ -197,28 +209,28 @@
       $scope.saveCommand = $scope.isNew ? 'Register' : 'Done';
       return $scope.isEditing = !$scope.isNew;
     });
-    $scope.findRunner = function(id) {
+    $scope.findRunner = function(bib) {
       var runner, _i, _len, _ref, _results;
       _ref = $scope.runners;
       _results = [];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         runner = _ref[_i];
-        if (runner.id === id) {
+        if (runner.bib === bib) {
           _results.push(runner);
         }
       }
       return _results;
     };
     $scope.createNewID = function() {
-      var ids;
-      ids = $scope.runners.map(function(obj, i) {
-        return obj.id;
+      var bibs;
+      bibs = $scope.runners.map(function(obj, i) {
+        return obj.bib;
       });
-      return Math.max.apply(Math, ids) + 1;
+      return Math.max.apply(Math, bibs) + 1;
     };
     $scope.saveRunner = function() {
-      if ($scope.runner.id == null) {
-        $scope.runner.id = $scope.createNewID();
+      if ($scope.runner.bib == null) {
+        $scope.runner.bib = $scope.createNewID();
         $scope.runner.time = null;
         $scope.runners.push($scope.runner);
       }
