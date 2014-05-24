@@ -86,10 +86,9 @@ timerApp.filter('ageGrpFilter', ()->
 		if runners?
 			for r in runners
 				results = (r for r in runners when r.age >= minAge and r.age <= maxAge and r.race is race and r.time isnt null and (r.gender is gender or gender is null))
-				results.sort((a,b)->
-					if a.time < b.time then 0 else 1
-				)
-			results
+			results.sort((a,b)->
+				if a.time <= b.time then -1 else 1
+			)
 )			
 
 
@@ -111,6 +110,13 @@ timerCtrl = timerApp.controller('timerCtrl', ($scope, Runners, localStorageServi
 	$scope.bibNo = null
 	$scope.stopwatch = stopwatchService
 
+	$scope.results = [
+		'5K': [
+			'F':[
+				''
+			]
+		]
+	]
 	$scope.stopwatch.start() if $scope.timerIsActive 
 
 	$scope.startTimer = ()->

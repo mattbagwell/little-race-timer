@@ -121,15 +121,14 @@
             }
             return _results;
           })();
-          results.sort(function(a, b) {
-            if (a.time < b.time) {
-              return 0;
-            } else {
-              return 1;
-            }
-          });
         }
-        return results;
+        return results.sort(function(a, b) {
+          if (a.time <= b.time) {
+            return -1;
+          } else {
+            return 1;
+          }
+        });
       }
     };
   });
@@ -149,6 +148,15 @@
     $scope.raceIsOver = localStorageService.get('raceEndTime') != null;
     $scope.bibNo = null;
     $scope.stopwatch = stopwatchService;
+    $scope.results = [
+      {
+        '5K': [
+          {
+            'F': ['']
+          }
+        ]
+      }
+    ];
     if ($scope.timerIsActive) {
       $scope.stopwatch.start();
     }
